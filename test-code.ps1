@@ -1,7 +1,4 @@
-fac$adminUPN="boring@usip.org"
-$orgName="USIP"
-$ADMINcred = Get-Credential -UserName $adminUPN -Message "Type the password."
-$MSX13 = 'msx13hybrid.usip.local'
+
 
 # welcome sctript
 
@@ -172,7 +169,7 @@ function New-OnlineDL {
 }
 
 Function Replicate-AD { 
-    if (!($localcredentials)){$localcredentials=$ADMINcred}
+    if (!($localcredentials)){$localcredentials=(Get-credential)}
     $DC = 'dc1colo','dc2colo','hq-dc01','hq-dc5'
     foreach ($controller in $DC)
     { 
